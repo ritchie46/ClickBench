@@ -244,7 +244,7 @@ queries = [
             x.filter(pl.col("Referer") != "")
             .with_columns(
                 pl.col("Referer")
-                .str.extract("(?-u)^https?://(?:www\\.)?([^/]+)/.*$")
+                .str.extract("^https?://(?:www\\.)?([^/]+)/.*$")
                 .alias("k")
             )
             .group_by("k")
